@@ -1,15 +1,15 @@
 {
-  "name": "shttp",
+  "name": "sHTTP",
   "version": "0.0.7",
   "description": "a simple http server",
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
   "license": "Unlicense",
   "bin": {
-    "shttp": "./shttp.js"
+    "shttp": "./sHTTP.js"
   },
   "scripts": {
-    "start": "node ./shttp.js",
-    "prepublish": "babel src/ --out-file shttp.js --experimental --source-maps"
+    "start": "node ./sHTTP.js",
+    "prepublish": "babel src/ --out-file sHTTP.js --experimental --source-maps"
   },
   "repository": {
     "type": "git",
