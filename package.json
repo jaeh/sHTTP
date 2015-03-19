@@ -1,6 +1,6 @@
 {
   "name": "shttp",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "a simple http server",
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
   "license": "Unlicense",
