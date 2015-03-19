@@ -26,12 +26,5 @@
   "dependencies": {
     "ecstatic": "^0.6.1",
     "minimist": "^1.1.1"
-  },
-  "gitHead": "b6c349f8b789ea06173cddf2e70924bb19e249c3",
-  "readme": "# sHTTP\na simple http server\n```bash\n  npm install -g jaeh/sHTTP\n  sHTTP -p 1337 --dir=dir/to/serve/from\n```\n",
-  "readmeFilename": "README.md",
-  "_id": "sHTTP@0.0.1",
-  "_shasum": "33119bff048787e0758fbbdba2e199b79d4913f1",
-  "_from": "../../../../tmp/npm-2486-cb5bccbd/git-cache-db7949cfcbf8/b6c349f8b789ea06173cddf2e70924bb19e249c3",
-  "_resolved": "git://github.com/jaeh/sHTTP#b6c349f8b789ea06173cddf2e70924bb19e249c3"
+  }
 }
