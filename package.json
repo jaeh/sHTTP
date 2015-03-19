@@ -1,5 +1,5 @@
 {
-  "name": "sHTTP",
+  "name": "shttp",
   "version": "0.0.8",
   "description": "a simple http server",
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
