@@ -1,6 +1,6 @@
 {
-  "name": "sHTTP",
-  "version": "0.0.1",
+  "name": "shttp",
+  "version": "0.0.9",
   "description": "a simple http server, sHTTP -p port -d /path/to/dir",
   "main": "server.js",
   "author": {
@@ -8,7 +8,7 @@
     "email": "jascha@jaeh.at"
   },
   "bin": {
-    "sHTTP": "./sHTTP"
+    "shttp": "./sHTTP"
   },
   "scripts": {
     "start": "node ./sHTTP",
