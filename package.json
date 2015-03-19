@@ -4,10 +4,9 @@
   "description": "a simple http server",
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
   "license": "Unlicense",
-  "main": "./shttp",
-  "bin": "./shttp",
+  "main": "shttp",
+  "bin": "shttp",
   "scripts": {
-    "start": "./shttp",
     "prepublish": "babel src/ --out-file shttp --experimental --source-maps"
   },
   "repository": {
