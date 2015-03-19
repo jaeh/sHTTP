@@ -8,7 +8,7 @@
     "shttp": "./shttp.js"
   },
   "scripts": {
-    "start": "node shttp",
+    "start": "node ./shttp.js",
     "prepublish": "babel src/ --out-file shttp.js --experimental --source-maps"
   },
   "repository": {
