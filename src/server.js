@@ -1,23 +1,13 @@
-import express from 'express';
+#!/usr/bin/env node
+
+import {createServer} from 'http';
+import ecstatic from 'ecstatic';
 import {join} from 'path';
 import minimist from 'minimist';
 
 var argv = minimist(process.argv.slice(2))
-  , app    = express()
-  , port   = argv.port || 1337
+  , port   = argv.p || 1337
   , dir    = process.cwd()
-  , indexFile = argv.index || 'index.html'
-  , options = {
-      dotfiles: 'ignore'
-    , etag: false
-    , extensions: ['html']
-    , index: indexFile
-    , maxAge: '1w'
-    , redirect: false
-    , setHeaders: (res, path, stat) => {
-        res.set('x-timestamp', Date.now())
-      }
-    }
 ;
 
 console.log(`running server with port: ${argv.p} and dir: ${argv.dir}`);
@@ -30,14 +20,18 @@ if ( argv.dir && typeof argv.dir === 'string' ) {
   }
 }
 
-app.use(express.static(dir, options));
-
-app.get('/kill', (req, res, next) => {
-  console.log(`killing app at port ${port}`);
+if ( argv.k || argv.kill ) {
   process.exit();
-});
+}
 
-app.listen(port);
+createServer(
+  ecstatic({
+      root   : dir
+    , showDir: false
+    , autoIndex: true
+    , defaultExt: 'html'
+  })
+).listen(port);
 
 console.log(
 `

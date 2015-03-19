@@ -1,32 +1,37 @@
 {
-  "name": "shttp",
-  "version": "0.0.8",
-  "description": "a simple http server",
-  "author": "Jascha Ehrenreich <jascha@jaeh.at>",
-  "license": "Unlicense",
+  "name": "sHTTP",
+  "version": "0.0.1",
+  "description": "a simple http server, sHTTP -p port -d /path/to/dir",
+  "main": "server.js",
+  "author": {
+    "name": "Jascha Ehrenreich",
+    "email": "jascha@jaeh.at"
+  },
   "bin": {
-    "shttp": "./sHTTP.js"
+    "sHTTP": "./sHTTP"
   },
   "scripts": {
-    "start": "node ./sHTTP.js",
-    "prepublish": "babel src/ --out-file sHTTP.js --experimental --source-maps"
+    "start": "node ./sHTTP",
+    "prepub": "babel src/ --out-file sHTTP --sourcemaps"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jaeh/shttp"
+    "url": "https://github.com/jaeh/sHTTP"
   },
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jaeh/shttp/issues"
+    "url": "https://github.com/jaeh/sHTTP/issues"
   },
-  "homepage": "https://github.com/jaeh/shttp",
+  "homepage": "https://github.com/jaeh/sHTTP",
   "dependencies": {
-    "express": "^4.12.3",
+    "ecstatic": "^0.6.1",
     "minimist": "^1.1.1"
   },
-  "files": [
-    "README.md"
-  ],
-  "devDependencies": {
-    "babel": "^4.7.16"
-  }
+  "gitHead": "b6c349f8b789ea06173cddf2e70924bb19e249c3",
+  "readme": "# sHTTP\na simple http server\n```bash\n  npm install -g jaeh/sHTTP\n  sHTTP -p 1337 --dir=dir/to/serve/from\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "sHTTP@0.0.1",
+  "_shasum": "33119bff048787e0758fbbdba2e199b79d4913f1",
+  "_from": "../../../../tmp/npm-2486-cb5bccbd/git-cache-db7949cfcbf8/b6c349f8b789ea06173cddf2e70924bb19e249c3",
+  "_resolved": "git://github.com/jaeh/sHTTP#b6c349f8b789ea06173cddf2e70924bb19e249c3"
 }
