@@ -1,6 +1,9 @@
 # sHTTP
 a simple http server
 ```bash
-  npm install -g jaeh/sHTTP
-  sHTTP -p 1337 --dir=dir/to/serve/from
+  npm install -g shttp
+  shttp 
+  #optional parameters with default values:
+  -p 1337 
+  --dir=./
 ```
