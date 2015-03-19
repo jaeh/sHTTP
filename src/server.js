@@ -1,6 +1,3 @@
-#!/usr/bin/env node
-
-import {createServer} from 'http';
 import express from 'express';
 import {join} from 'path';
 import minimist from 'minimist';
