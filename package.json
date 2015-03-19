@@ -1,6 +1,6 @@
 {
   "name": "sHTTP",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "a simple http server",
   "author": "Jascha Ehrenreich <jascha@jaeh.at>",
   "license": "Unlicense",
