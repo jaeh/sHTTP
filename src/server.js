@@ -12,7 +12,7 @@ var server = express()
   , dir    = process.cwd()
 ;
 
-info(`running server with arguments: ${JSON.stringify(argv)`);
+info(`running server with arguments: ${JSON.stringify(argv)}`);
 
 if ( argv.dir && typeof argv.dir === 'string' ) {
   if ( argv.dir.indexOf('/') === 0 ) {
@@ -27,7 +27,7 @@ server.use(morgan('combined'));
 if ( argv.single ) {
   server.use( (req, res, next) => {
     if ( req.path !== '/' ) {
-      log(`path requested: ${req.path}. redirected to root`);
+      log(`path requested: ${req.path} redirected to root`);
       return res.redirect('/');
     }
     res.status(200).sendFile(join(dir, 'index.html'));
