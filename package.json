@@ -1,7 +1,7 @@
 {
   "name": "shttp",
   "version": "0.0.9",
-  "description": "a simple http server, sHTTP -p port -d /path/to/dir",
+  "description": "a simple http server, shttp -p port --dir /path/to/dir",
   "main": "server.js",
   "author": {
     "name": "Jascha Ehrenreich",
@@ -12,13 +12,13 @@
   },
   "scripts": {
     "start": "node ./shttp",
-    "prepublish": "babel src/ --out-file shttp --sourcemaps"
+    "prepublish": "babel src/ --out-file shttp --sourcemaps --experimental"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jaeh/shttp"
   },
-  "license": "MIT",
+  "license": "AGPL",
   "bugs": {
     "url": "https://github.com/jaeh/shttp/issues"
   },
