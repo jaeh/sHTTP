@@ -1,0 +1,68 @@
+#!/usr/bin/env node
+"use strict";
+
+var _interopRequire = function (obj) { return obj && obj.__esModule ? obj["default"] : obj; };
+
+var express = _interopRequire(require("express"));
+
+var join = require("path").join;
+
+var minimist = _interopRequire(require("minimist"));
+
+var _winston = require("winston");
+
+var info = _winston.info;
+var log = _winston.log;
+
+var morgan = _interopRequire(require("morgan"));
+
+var server = express(),
+    argv = minimist(process.argv.slice(2)),
+    port = argv.p || 1337,
+    dir = process.cwd();
+
+info("running server with arguments: " + JSON.stringify(argv));
+
+if (argv.dir && typeof argv.dir === "string") {
+  if (argv.dir.indexOf("/") === 0) {
+    dir = argv.dir;
+  } else {
+    dir = join(process.cwd(), argv.dir);
+  }
+}
+
+server.use(morgan("combined"));
+
+if (argv.single) {
+  server.use(function (req, res, next) {
+    if (req.path !== "/") {
+      log("path requested: " + req.path + " redirected to root");
+      return res.redirect("/");
+    }
+    res.status(200).sendFile(join(dir, "index.html"));
+  });
+} else {
+  server.use(express["static"](dir, {
+    extensions: ["html"],
+    index: "index.html",
+    maxAge: "1d",
+    redirect: false,
+    setHeaders: function (res) {
+      res.set("x-timestamp", Date.now());
+    }
+  }));
+}
+
+server.use("/killkillkill", function () {
+  console.log("app received kill command");
+  process.exit();
+});
+
+server.use(function (req, res, next) {
+  log("404");
+  next();
+});
+
+server.listen(port);
+
+console.log("\nScreeninvader dev server listening to port: " + port + "\nand serving static files from " + dir + "\n");
