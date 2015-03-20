@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 
-import {createServer} from 'http';
-import ecstatic from 'ecstatic';
+import express from 'express';
 import {join} from 'path';
 import minimist from 'minimist';
+import {info, log} from 'winston';
+import morgan from 'morgan';
 
-var argv = minimist(process.argv.slice(2))
+var server = express()
+  , argv   = minimist(process.argv.slice(2))
   , port   = argv.p || 1337
   , dir    = process.cwd()
 ;
 
-console.log(`running server with port: ${argv.p} and dir: ${argv.dir}`);
+info(`running server with arguments: ${JSON.stringify(argv)`);
 
 if ( argv.dir && typeof argv.dir === 'string' ) {
   if ( argv.dir.indexOf('/') === 0 ) {
@@ -20,18 +22,39 @@ if ( argv.dir && typeof argv.dir === 'string' ) {
   }
 }
 
-if ( argv.k || argv.kill ) {
-  process.exit();
+server.use(morgan('combined'));
+
+if ( argv.single ) {
+  server.use( (req, res, next) => {
+    if ( req.path !== '/' ) {
+      log(`path requested: ${req.path}. redirected to root`);
+      return res.redirect('/');
+    }
+    res.status(200).sendFile(join(dir, 'index.html'));
+  });
+} else {
+  server.use(express.static(dir, {
+      extensions: ['html']
+    , index: 'index.html'
+    , maxAge: '1d'
+    , redirect: false
+    , setHeaders: (res) => {
+        res.set('x-timestamp', Date.now())
+      }
+  }) );
 }
 
-createServer(
-  ecstatic({
-      root   : dir
-    , showDir: false
-    , autoIndex: true
-    , defaultExt: 'html'
-  })
-).listen(port);
+server.use('/killkillkill', () => {
+  console.log('app received kill command');
+  process.exit();
+});
+
+server.use( (req, res, next) => {
+  log('404');
+  next();
+});
+
+server.listen(port);
 
 console.log(
 `

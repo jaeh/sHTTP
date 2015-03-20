@@ -24,7 +24,9 @@
   },
   "homepage": "https://github.com/jaeh/sHTTP",
   "dependencies": {
-    "ecstatic": "^0.6.1",
-    "minimist": "^1.1.1"
+    "express": "^4.12.3",
+    "minimist": "^1.1.1",
+    "morgan": "^1.5.2",
+    "winston": "^0.9.0"
   }
 }
