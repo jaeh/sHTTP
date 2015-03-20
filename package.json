@@ -12,7 +12,7 @@
   },
   "scripts": {
     "start": "node ./shttp",
-    "prepublish": "babel src/ --out-file shttp --sourcemaps --experimental"
+    "prepub": "babel src/ --out-file shttp --sourcemaps --experimental"
   },
   "repository": {
     "type": "git",
@@ -27,9 +27,7 @@
     "express": "^4.12.3",
     "minimist": "^1.1.1",
     "morgan": "^1.5.2",
-    "winston": "^0.9.0"
-  },
-  "devDependencies": {
+    "winston": "^0.9.0",
     "babel": "^4.7.16"
   }
 }
